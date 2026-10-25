@@ -1,0 +1,46 @@
+{
+  "id": "E107",
+  "value": 1.4705385593922856e+31,
+  "method": "Independent Python Decimal, precision 80 decimal digits; direct analytic SI equation with binary64 inputs decoded exactly, no JavaScript model imports.",
+  "value_80_digits": "14705385593922857100300603082541.891401183108238042781169968456146693386260325524",
+  "cases": [
+    {
+      "name": "Unit mass and unit opacity analytic coefficient",
+      "values": {
+        "mass": 1,
+        "opacity": 1
+      },
+      "expected": 0.2514411131137896
+    },
+    {
+      "name": "Double mass doubles luminosity",
+      "values": {
+        "mass": 3.97694e+30
+      },
+      "expected": 2.9410771187845713e+31
+    },
+    {
+      "name": "Double opacity halves luminosity",
+      "values": {
+        "opacity": 0.068
+      },
+      "expected": 7.352692796961428e+30
+    },
+    {
+      "name": "Large compensating input magnitudes remain finite",
+      "values": {
+        "mass": 1e+300,
+        "opacity": 1e+300
+      },
+      "expected": 0.2514411131137896
+    },
+    {
+      "name": "Unrepresentable luminosity rejected",
+      "values": {
+        "mass": 1e+308,
+        "opacity": 1e-300
+      },
+      "throws": true
+    }
+  ]
+}
